@@ -29,8 +29,19 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "a1e260f0-67cd-4a4c-837c-20075ad896cb",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "2D Vector",
-                    "id": "655a448a-2270-43c0-904c-95a0cfb8830c",
+                    "id": "2ca628f7-f920-457c-b7dc-6883098bd225",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -41,7 +52,7 @@
                 },
                 {
                     "name": "up",
-                    "id": "24fe1519-4bf2-4184-acd4-c852d8115343",
+                    "id": "d958a1c4-4760-4be1-9e83-29375d009f31",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
@@ -52,7 +63,7 @@
                 },
                 {
                     "name": "down",
-                    "id": "c5902c51-25ce-4f92-be82-1025bb182af0",
+                    "id": "96b06895-1af7-42d8-8c27-e6c98a87dafd",
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
@@ -63,7 +74,7 @@
                 },
                 {
                     "name": "left",
-                    "id": "132dff6f-5dfb-4a5b-9cf0-24d563388b53",
+                    "id": "80f4a20b-8b30-4a8a-8c08-11266c59d89c",
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
@@ -74,7 +85,7 @@
                 },
                 {
                     "name": "right",
-                    "id": "b14fbe24-2fa3-42c7-bdc5-d8aad2735bc7",
+                    "id": "c38cc8c9-881b-48b0-96fd-f0150383586c",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
@@ -82,17 +93,6 @@
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "a1e260f0-67cd-4a4c-837c-20075ad896cb",
-                    "path": "<Mouse>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         }

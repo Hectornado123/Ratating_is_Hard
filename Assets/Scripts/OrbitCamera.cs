@@ -1,4 +1,4 @@
-ï»¿using UnityEngine;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class CameraOrbit : MonoBehaviour
@@ -50,7 +50,7 @@ public class CameraOrbit : MonoBehaviour
         float inputX = Mathf.Clamp(input.x, -1f, 1f);
         float inputY = Mathf.Clamp(input.y, -1f, 1f);
 
-        //  ACELERACIÃ“N / FRENADO
+        //  ACELERACIÓN / FRENADO
         float targetSpeedX = inputX * maxSpeed;
         float targetSpeedY = inputY * maxSpeed;
 
@@ -60,7 +60,7 @@ public class CameraOrbit : MonoBehaviour
         currentSpeedX = Mathf.Lerp(currentSpeedX, targetSpeedX, accelX * Time.deltaTime);
         currentSpeedY = Mathf.Lerp(currentSpeedY, targetSpeedY, accelY * Time.deltaTime);
 
-        //  RotaciÃ³n
+        //  Rotación
         yaw += currentSpeedX * Time.deltaTime;
         pitch -= currentSpeedY * Time.deltaTime;
 
