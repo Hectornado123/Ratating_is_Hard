@@ -14,6 +14,7 @@ public class PatrullaAB : MonoBehaviour
 
     void Start()
     {
+       
         agent = GetComponent<NavMeshAgent>();
         destino = puntoA;
         agent.SetDestination(destino.position);
