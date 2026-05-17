@@ -146,6 +146,38 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &97588333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97588330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 701a27f5d6b442245ac78d700543cf0d, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &308005690
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,7 +293,7 @@ Camera:
   far clip plane: 1000
   field of view: 79.1
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10.11
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -286,7 +318,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0017772571, y: -0.99610525, z: -0.08736307, w: -0.011789594}
-  m_LocalPosition: {x: -0.7, y: -3.2, z: 33.1}
+  m_LocalPosition: {x: -0.79, y: -3.84, z: 36.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -554,6 +586,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5dcd907caa83c784eb0d9f5397bba2e3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 97588332}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5dcd907caa83c784eb0d9f5397bba2e3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 97588333}
     - targetCorrespondingSourceObject: {fileID: -7029948723529949830, guid: 5dcd907caa83c784eb0d9f5397bba2e3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1575113379}
