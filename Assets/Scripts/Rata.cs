@@ -2,12 +2,14 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
 
-public class PatrullaAB : MonoBehaviour
+public class Rata : MonoBehaviour
 {
     public Transform puntoA;
     public Transform puntoB;
     public float velocidadGiro = 180f;
-    public float tiempoIdle = 2f; // duración del idle
+    public float tiempoIdle = 2f;
+
+    public Transform respawnPlayer; // punto donde reaparece
 
     private NavMeshAgent agent;
     private Transform destino;
@@ -40,10 +42,8 @@ public class PatrullaAB : MonoBehaviour
         girando = true;
         agent.isStopped = true;
 
-        // Idle
         anim.SetBool("Caminar", false);
 
-        // Espera a que termine la animación idle
         yield return new WaitForSeconds(tiempoIdle);
 
         destino = (destino == puntoA) ? puntoB : puntoA;
@@ -53,7 +53,6 @@ public class PatrullaAB : MonoBehaviour
 
         Quaternion rotacionObjetivo = Quaternion.LookRotation(direccion) * Quaternion.Euler(0, 180, 0);
 
-        // Giro después del idle
         while (Quaternion.Angle(transform.rotation, rotacionObjetivo) > 1f)
         {
             transform.rotation = Quaternion.RotateTowards(
@@ -65,11 +64,28 @@ public class PatrullaAB : MonoBehaviour
             yield return null;
         }
 
-        // Vuelve a caminar
         anim.SetBool("Caminar", true);
 
         agent.SetDestination(destino.position);
         agent.isStopped = false;
         girando = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Ha entrado algo: " + other.name);
+
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Jugador detectado");
+
+            other.transform.position = respawnPlayer.position;
+
+            Rigidbody playerRb = other.GetComponent<Rigidbody>();
+            if (playerRb != null)
+            {
+                playerRb.linearVelocity = Vector3.zero;
+            }
+        }
     }
 }
