@@ -17,7 +17,7 @@ public class PickUp : MonoBehaviour
     {
         if (points >= winPoints)
         {
-
+            Debug.Log("Has ganado");
         }
 
     }
