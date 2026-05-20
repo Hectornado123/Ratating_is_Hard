@@ -388,8 +388,8 @@ MonoBehaviour:
   acceleration: 6
   deceleration: 4
   smoothTime: 0.05
-  minY: -30
-  maxY: 60
+  minY: -50
+  maxY: -5.99
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,6 +985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterController
   speed: 5
+  cameraTransform: {fileID: 330585546}
 --- !u!1 &622783641 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8961359253771211100, guid: 5dcd907caa83c784eb0d9f5397bba2e3, type: 3}
