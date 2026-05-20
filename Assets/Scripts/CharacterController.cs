@@ -6,6 +6,9 @@ public class CharacterController : MonoBehaviour
 {
     public float speed = 5f;
 
+    [Header("Referencia a la cámara")]
+    public Transform cameraTransform;
+
     private Rigidbody rb;
     private Vector2 moveInput;
 
@@ -14,7 +17,7 @@ public class CharacterController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    // ESTE es el que debe aparecer sí o sí
+    // Input System
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
@@ -22,12 +25,30 @@ public class CharacterController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 move = new Vector3(moveInput.x, 0f, moveInput.y);
+        if (cameraTransform == null)
+            return;
 
+        // Dirección forward y right de la cámara
+        Vector3 forward = cameraTransform.forward;
+        Vector3 right = cameraTransform.right;
+
+        // Quitamos inclinación vertical
+        forward.y = 0f;
+        right.y = 0f;
+
+        forward.Normalize();
+        right.Normalize();
+
+        // Movimiento relativo a la cámara
+        Vector3 moveDirection =
+            forward * moveInput.y +
+            right * moveInput.x;
+
+        // Aplicar velocidad
         rb.linearVelocity = new Vector3(
-            move.x * speed,
+            moveDirection.x * speed,
             rb.linearVelocity.y,
-            move.z * speed
+            moveDirection.z * speed
         );
     }
 }
