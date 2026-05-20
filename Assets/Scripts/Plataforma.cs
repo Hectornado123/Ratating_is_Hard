@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Plataforma : MonoBehaviour
+public class Plataformacxz : MonoBehaviour
 {
     public Transform puntoA;
     public Transform puntoB;
