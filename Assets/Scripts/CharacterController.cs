@@ -80,7 +80,7 @@ public class CharacterController : MonoBehaviour
         if (animator != null)
         {
             animator.SetBool(
-                "isWalking",
+                "Caminar",
                 moveDirection.sqrMagnitude > 0.001f
             );
         }
