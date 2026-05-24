@@ -2541,7 +2541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterController
   speed: 5
   cameraTransform: {fileID: 330585546}
-  animator: {fileID: 0}
+  animator: {fileID: 1719073790}
   rotationSpeed: 10
 --- !u!54 &1719073787
 Rigidbody:
