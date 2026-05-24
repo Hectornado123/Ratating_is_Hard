@@ -15,6 +15,12 @@ public class CharacterController : MonoBehaviour
     [Header("Rotación")]
     public float rotationSpeed = 10f;
 
+    [Tooltip("Offset de rotación del modelo")]
+    public Vector3 modelRotationOffset;
+
+    [Header("Modelo visual")]
+    public Transform visualModel;
+
     private Rigidbody rb;
     private Vector2 moveInput;
 
@@ -26,7 +32,7 @@ public class CharacterController : MonoBehaviour
         rb.freezeRotation = true;
     }
 
-    // Input System
+    // INPUT SYSTEM
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
@@ -37,7 +43,7 @@ public class CharacterController : MonoBehaviour
         if (cameraTransform == null)
             return;
 
-        // Dirección de cámara
+        // Dirección relativa a la cámara
         Vector3 forward = cameraTransform.forward;
         Vector3 right = cameraTransform.right;
 
@@ -47,12 +53,11 @@ public class CharacterController : MonoBehaviour
         forward.Normalize();
         right.Normalize();
 
-        // Dirección movimiento
+        // Dirección de movimiento
         Vector3 moveDirection =
             forward * moveInput.y +
             right * moveInput.x;
 
-        // Normalizar para evitar más velocidad en diagonal
         moveDirection.Normalize();
 
         // Movimiento
@@ -61,12 +66,13 @@ public class CharacterController : MonoBehaviour
 
         rb.linearVelocity = velocity;
 
-        // Rotación suave SOLO si se mueve
+        // Rotación
         if (moveDirection.sqrMagnitude > 0.001f)
         {
             Quaternion targetRotation =
                 Quaternion.LookRotation(moveDirection);
 
+            // Rotación física del player
             rb.MoveRotation(
                 Quaternion.Slerp(
                     rb.rotation,
@@ -74,9 +80,23 @@ public class CharacterController : MonoBehaviour
                     rotationSpeed * Time.fixedDeltaTime
                 )
             );
+
+            // Rotación visual + offset
+            if (visualModel != null)
+            {
+                Quaternion visualRotation =
+                    targetRotation *
+                    Quaternion.Euler(modelRotationOffset);
+
+                visualModel.rotation = Quaternion.Slerp(
+                    visualModel.rotation,
+                    visualRotation,
+                    rotationSpeed * Time.fixedDeltaTime
+                );
+            }
         }
 
-        // Animación
+        // Animaciones
         if (animator != null)
         {
             animator.SetBool(
