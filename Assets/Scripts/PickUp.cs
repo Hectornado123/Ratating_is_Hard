@@ -1,12 +1,12 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PickUp : MonoBehaviour
 {
     [Header("Points System")]
-    public int points; //Puntuación actual del player (en juego)
-    public int winPoints = 4; //Puntuación a alcanzar para completar el nivel
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public int points; 
+    public int winPoints = 5; 
+    
+    
     void Start()
     {
         points = 0;
@@ -17,7 +17,8 @@ public class PickUp : MonoBehaviour
     {
         if (points >= winPoints)
         {
-            Debug.Log("Has ganado");
+            int nivelActual = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(nivelActual + 1);
         }
 
     }
